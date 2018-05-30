@@ -4,7 +4,7 @@ services:
 
   traefik:
     image: traefik:latest
-    command: --web --docker --docker.watch --docker.domain=${DOMAIN} --docker.exposedbydefault=false --acme.domains=${DOMAIN}
+    command: --web --docker --docker.watch --docker.domain=${DOMAIN} --docker.exposedbydefault=false --acme.domains=${DOMAIN} entryPoints.https.auth.basic.address=auth.${DOMAIN}
     container_name: traefik
     hostname: traefik
     ports:
