@@ -40,7 +40,21 @@ services:
     labels:
       com.centurylinklabs.watchtower.enable: "true"
     restart: unless-stopped
-
+  twain:
+    image: duhio/twain:latest
+    container_name: twain
+    hostname: auth
+    ports:
+      - "6767:80"
+    volumes:
+      - {CONFIG}/twain:/config
+    labels:
+      - traefik.enable: "true"
+      - traefik.port: "80"
+      - traefik.frontend.rule: "Host:auth.${DOMAIN}"
+      - com.centurylinklabs.watchtower.enable: "true"
+    restart: unless-stopped
+      
   sabnzbd:
     image: linuxserver/sabnzbd:latest
     container_name: sabnzbd
