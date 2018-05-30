@@ -67,6 +67,9 @@ In the directory containing the files, run `docker-compose up -d`. Each service 
 
 When plumbing each of the services together you can simply enter the service name and port instead of using IP addresses. For example, when configuring a download client in Sonarr/Radarr enter `sabnzbd` in the Host field and `8080` in the Port field. The same applies for other services such as NZBHydra.
 
+### Authentication Service Configuration
+
+TODO
 
 #### Customisation
 
